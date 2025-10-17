@@ -1,0 +1,102 @@
+/* General Page Layout */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background:white;
+  color: black;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header {
+  padding: 2em 0;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5em;
+}
+
+/* Link Section */
+.links {
+  margin-top: 2em;
+}
+
+.links a {
+  color: #081675;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 1em;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* PDF Preview */
+.pdf-preview {
+  margin-top: 2em;
+  text-align: center;
+}
+
+.pdf-preview img {
+  width: 200px;
+  max-width: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pdf-preview img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0,0,0,0.4);
+}
+
+.pdf-preview p a {
+  color: #7FDBFF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.pdf-preview p a:hover {
+  text-decoration: underline;
+}
+
+/* Two Side-by-Side Images */
+.image-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin-top: 2em;
+}
+
+.image-row img {
+  width: 45%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.image-row img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 700px) {
+  .image-row img {
+    width: 90%;
+    max-width: none;
+  }
+}
+
+/* Footer */
+footer {
+  margin-top: 3em;
+  font-size: 0.9em;
+  opacity: 0.7;
+}
