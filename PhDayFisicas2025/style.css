@@ -1,109 +1,164 @@
-/* General Page Layout */
+/* ===============================
+   GENERAL PAGE STYLING
+=============================== */
+:root {
+  --primary-color: #0a3d62;       /* Deep blue */
+  --secondary-color: #f6f5f5;     /* Light background */
+  --accent-color: #ff6b6b;        /* Coral/red accent */
+  --text-color: #333;
+  --link-hover: #1e90ff;
+  --border-radius: 12px;
+  --transition-speed: 0.3s;
+}
+
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background:white;
-  color: black;
+  font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+  background: var(--secondary-color);
+  color: var(--text-color);
   margin: 0;
   padding: 0;
+  line-height: 1.6;
   text-align: center;
 }
 
+/* HEADER – Improved for long titles */
 header {
-  padding: 2em 0;
+  padding: 3em 1em 2em;
+  background: linear-gradient(135deg, #0a3d62, #1e90ff);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-h1 {
-  font-size: 3rem;
+header h2 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem); /* Dynamically scales with viewport */
+  max-width: 900px;             /* Prevent too wide lines */
+  line-height: 1.4;             /* Comfortable spacing between lines */
+  word-wrap: break-word;        /* Break long words if necessary */
   margin-bottom: 0.5em;
+  text-align: center;           /* Always centered */
+  background-color: rgba(10,10,10,0.2);
+  padding: 0.5em 1em;
+  border-radius: 10px;
 }
 
-/* Link Section */
+header h3 {
+  font-weight: 400;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* MAIN TEXT */
+p {
+  max-width: 800px;
+  margin: 1.5em auto;
+  font-size: 1rem;
+  padding: 0 1em;
+}
+
+/* LINKS SECTION */
 .links {
-  margin-top: 2em;
+  margin: 2em auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
 }
 
 .links a {
-  color: #081675;
+  color: var(--primary-color);
+  font-weight: 600;
   text-decoration: none;
-  font-weight: bold;
-  margin: 0 1em;
+  padding: 0.5em 1.2em;
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-speed) ease;
 }
 
 .links a:hover {
-  text-decoration: underline;
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
 }
 
-/* PDF Preview */
-.pdf-preview {
-  margin-top: 2em;
-  text-align: center;
-}
-
-.pdf-preview img {
-  width: 200px;
-  max-width: 80%;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.pdf-preview img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(0,0,0,0.4);
-}
-
-.pdf-preview p a {
-  color: #7FDBFF;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.pdf-preview p a:hover {
-  text-decoration: underline;
-}
-
-/* Two Side-by-Side Images */
+/* IMAGE ROW */
 .image-row {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1em;
-  margin-top: 2em;
+  gap: 1.5em;
+  margin: 2em 1em;
 }
 
 .image-row img {
   width: 45%;
   max-width: 400px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .image-row img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
 }
 
-/* Responsive adjustment for smaller screens */
-@media (max-width: 700px) {
-  .image-row img {
-    width: 90%;
-    max-width: none;
-  }
+/* PDF PREVIEW */
+.pdf-preview {
+  margin: 2em auto;
 }
 
-/* Footer */
+.pdf-preview img {
+  width: 200px;
+  max-width: 90%;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.pdf-preview img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+/* FOOTER */
 footer {
   margin-top: 3em;
   font-size: 0.9em;
   opacity: 0.8;
   text-align: center;
-  line-height: 1.4em;
+  padding: 2em 1em;
+  background-color: #f0f0f0;
 }
 
 footer blockquote {
-  margin: 0.5em auto 0;
+  margin: 0;
   font-style: italic;
+  color: #555;
 }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .image-row img {
+    width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  header h2 {
+    font-size: 1.5rem;
+  }
+
+  header h3 {
+    font-size: 1rem;
+  }
+
+  .links a {
+    width: 80%;
+    text-align: center;
+  }
+}
+
